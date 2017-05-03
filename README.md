@@ -1,3 +1,3 @@
 # Website-Documentation
 
-*Website documentation for all the FOSSEE websites
+Website documentation for all the FOSSEE websites
