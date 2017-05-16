@@ -53,23 +53,23 @@ Scilab Website
 
     `*http://cssmenumaker.com/menu/modern-accordion-menu#* <http://cssmenumaker.com/menu/modern-accordion-menu#>`__
 
-a. Git implementation to be done. Currently the completed books are save
-       on the server and its entry in database. On completed book
-       checkbox selection the files should be automatically be pushed to
-       GIT repo.
+   b. Git implementation to be done. Currently the completed books are save
+	       on the server and its entry in database. On completed book
+	       checkbox selection the files should be automatically be pushed to
+	       GIT repo.
 
-1. Apache Solr Search
+2. Apache Solr Search
 
    a. New searching techniques to be implemented.
 
     `*https://wunder.io/blog/build-advanced-content-listings-with-apache-solr-search-api-facet-api/2012-04-20* <https://wunder.io/blog/build-advanced-content-listings-with-apache-solr-search-api-facet-api/2012-04-20>`__
 
-a. Result display of search can be improved.
+   b. Result display of search can be improved.
 
-b. Sometimes cannot handle search limit, throws Indexoutofbound()
-       exception.
+   c. Sometimes cannot handle search limit, throws Indexoutofbound()
+	       exception.
 
-1. Textbook Companion/Lab Migration
+3. Textbook Companion/Lab Migration
 
    a. User dashboard according to each role
 
@@ -80,15 +80,15 @@ b. Sometimes cannot handle search limit, throws Indexoutofbound()
 
     `*http://bootsnipp.com/snippets/W7gNz* <http://bootsnipp.com/snippets/W7gNz>`__
 
-a. Payment interface to be tested.
+   d. Payment interface to be tested.
 
-1. Scilab Toolbox Interface
+4. Scilab Toolbox Interface
 
    a. Currently, this content is added as static HTML. An interface to
           be developed which will take data as input and render it to
           the decided format. The parameters to be given by scilab team.
 
-2. Scilab on cloud
+5. Scilab on cloud
 
    a. Currently the Categories loaded are written static. For future
           scope this should also be loaded dynamically from the
