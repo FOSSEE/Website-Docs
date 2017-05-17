@@ -128,22 +128,22 @@ Website Migrated to **Drupal 7** : 7/9/2015
 6. Other implementations as per this doc
        <`*link* <https://docs.google.com/document/d/12wJOl_ahPZwqPzQn_mxTLsgNKHvL-RCEKh1HOx-B-lA/edit>`__>
 
-.. |image0| image:: media/Step1_TBC Account creation.png
+.. |image0| image:: media/Step1_TBCAccount creation.png
    :width: 5.69792in
    :height: 4.41667in
-.. |image1| image:: media/Step2_TBC Book Proposal.png
+.. |image1| image:: media/Step2_TBCBook Proposal.png
    :width: 6.26772in
    :height: 9.69444in
-.. |image2| image:: media/Step3_Code Upload.png
+.. |image2| image:: media/Step3_CodeUpload.png
    :width: 4.05208in
    :height: 2.83333in
-.. |image3| image:: media/Step4_Sytax review.png
+.. |image3| image:: media/Step4_Sytaxreview.png
    :width: 6.26772in
    :height: 6.02778in
-.. |image4| image:: media/Step5_Manual Review.png
+.. |image4| image:: media/Step5_ManualReview.png
    :width: 6.26772in
    :height: 7.70833in
-.. |image5| image:: media/Step6_ Honorarium.png
+.. |image5| image:: media/Step6_Honorarium.png
    :width: 6.26772in
    :height: 4.44444in
 .. |image6| image:: media/TBCUser.jpg
