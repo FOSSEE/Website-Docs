@@ -1,26 +1,25 @@
+***Process to upgrade from drupal 6 to drupal 7***
+
 
 Document Information
 ====================
 
-Name of the Document: Drupal 6 to Drupal 7 upgradation process
+Name of the Document: TBC Flow
 
-Date: 7/04/2015
+Date: 5/04/2015
 
 Author: Priyanka Bhagwat and Prashant Sinalakar
 
-----------------------------------------------------------------------------------------------------------------------------
-**Process to upgrade from drupal 6 to drupal 7**
------------------------------
+
 **step 1:**
 
 **take a backup of your drupal site and database**
------------------------------
-**step 2:**
 
+**step 2:**
 
 **Login as superuser/first user and disable all custom modules and
 custom theme of drupal 6 site.**
------------------------------
+
 **step 3:**
 
 	1) **Install drush into your system**
@@ -70,31 +69,18 @@ custom theme of drupal 6 site.**
 
 	drush upc --no-core
 
------------------------------
 **step 4:**
-
 	1) drush dl drupal-7
 
 	2) make settings.php
 
-	3) connect with old db
+	3) connect with old db then, go to project dir run
 
-	then, go to project dir run
+	# references, link
 
-	4) # references, link
+	4) drush updb
 
-	5) drush updb
------------------------------
-
-**step 5:**
-
-	1) login to first user
-
-	2) mv all old sites data to new d7 except theme
-
-	3) remove modulename\_bck modules
-
-	them update all modules using
+	5) login to first user and mv all old sites data to new d7 except theme,remove modulename\_bck modules,	them update all modules using
 
 	drush dl -y acl references author\_pane ckeditor votingapi views ctools
 	references xmlsitemap webform advanced\_forum captcha cck ckeditor
@@ -104,32 +90,32 @@ custom theme of drupal 6 site.**
 
 	## acl references views ctools references webform cck link views
 
-	4) enable all necessary moduls
+	6) enable all necessary modules
 
-	5) drush updb
+	7) drush updb
 
-	if any error in webform take out webform form modules then,
+	8) if any error in webform take out webform form modules then,
 
 	drush updb
 
 	node\_access => references
 
------------------------------
-**step 6:**
-	Only for SCILAB Website
-	Scilink Query
+**step 5:**
+
+	Scilink Query - Only for Scilab Website
 
 	content type => Documentation Page
 
 	select \* from content\_field\_link where nid in (SELECT nid FROM
 	\`content\_type\_link\` where \`field\_parent\_page\_nid\`=118)
------------------------------
+
 **Important**
 
 	1) **changed query structure..**
 
-	2) **theme\_table must be replaced to ‘theme(“”, “”, array =()) **
------------------------------
+	2) **theme\_table must be replaced to ‘Section title..
+===============theme(“”, “”, array =()) **
+
 ***Error and solution :***
 
 	**If you get error like following: **
