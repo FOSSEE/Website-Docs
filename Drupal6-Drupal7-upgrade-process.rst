@@ -4,7 +4,7 @@
 Document Information
 ====================
 
-Name of the Document: TBC Flow
+Name of the Document: Drupal 6 to Drupal 7 Upgradation process
 
 Date: 5/04/2015
 
