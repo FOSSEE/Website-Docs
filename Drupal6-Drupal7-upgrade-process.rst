@@ -1,4 +1,4 @@
-***Process to upgrade from drupal 6 to drupal 7***
+**Process to upgrade from drupal 6 to drupal 7**
 
 
 Document Information
