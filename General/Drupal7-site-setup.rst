@@ -1,4 +1,3 @@
-**Drupal 7 Site Setup**
 
 Document Information
 ====================
@@ -9,7 +8,8 @@ Date: 5/04/2015
 
 Author: Priyanka Bhagwat and Prashant Sinalakar
 
-**Prerequirement**
+Prerequisite
+====================
 
 **Linux, Apache, MySql, PHP**
 
