@@ -343,15 +343,15 @@ Activities
 
 **BLOCK- Events**
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
- SELECT node.title AS node\_title, node.nid AS nid, node.created AS node\_created                                                                                                                                     FROM
- {node} node                                                                                                                                                                                                       
+SELECT node.title As node_\title, node.nid AS nid, node.created As node_\created                                                                     
+FROM
+{node} node
+                                                                                                                                                                                              
 INNER JOIN {field\_data\_field\_tags} field\_data\_field\_tags ON node.nid = field\_data\_field\_tags.entity\_id AND (field\_data\_field\_tags.entity\_type = 'node' AND field\_data\_field\_tags.deleted = '0')   |
  WHERE (( (node.status = '1') AND (node.type IN ('article')) AND (field\_data\_field\_tags.field\_tags\_tid = '3') ))                                                                               
 ORDER BY node\_created DESC                                                                                                                                                                                     
-LIMIT 5 OFFSET 0                                                                                                                                                                                                   
-+====================================================================================================================================================================================================================+
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+LIMIT 5 OFFSET 0                                                                                                                                                                                                 
+
 
 |image25|
 
@@ -373,14 +373,12 @@ Team Members
 
 Query
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
  SELECT node.nid AS nid, node.created AS node\_created, 'node' AS field\_data\_field\_team\_members\_name\_node\_entity\_type, 'node' AS field\_data\_field\_member\_designation\_node\_entity\_type, 'node' AS field\_data\_field\_projects\_node\_entity\_type            
 FROM                                                                                                                                                                                                                                                                        {node} node                                                                                                                                                                                                                                                                 
  LEFT JOIN {field\_data\_field\_employment\_type\_} field\_data\_field\_employment\_type\_\_value\_0 ON node.nid = field\_data\_field\_employment\_type\_\_value\_0.entity\_id AND field\_data\_field\_employment\_type\_\_value\_0.field\_employment\_type\_\_value = '0'   
  WHERE (( (node.status = '1') AND (node.type IN ('team\_members')) AND( (field\_data\_field\_employment\_type\_\_value\_0.field\_employment\_type\_\_value = '0') )))                                                                                                        
 ORDER BY node\_created ASC                                                                                                                                                                                                                                                  
-+=============================================================================================================================================================================================================================================================================+
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 |image27|
 
