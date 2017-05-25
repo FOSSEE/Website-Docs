@@ -64,7 +64,7 @@ SMTP Authentication Support
 
 
 **Structure-> Field collection-> Field collection field\_personal\_details**
-**Create-> Content Types -> Case Study Proposal**
+
 
 |image111|
 
