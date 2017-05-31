@@ -109,6 +109,17 @@ accepted.
     `*http://cfd.fossee.in/case-study/manage-proposal* <http://cfd.fossee.in/case-study/manage-proposal>`__
 
     **Roles-** Administrator, Case Study Reviewer
+  **Query-**
+
+  SELECT node.title AS node\_title, node.nid AS nid, node.created AS
+  node\_created, 'node' AS
+  field\_data\_field\_case\_study\_status\_node\_entity\_type
+ FROM
+ {node} node
+ WHERE (( (node.status = '1') AND (node.type IN
+ ('case\_study\_proposal')) ))
+ ORDER BY node\_created DESC
+ LIMIT 25 OFFSET 0
 
     Description
 
@@ -140,6 +151,46 @@ accepted.
    -  Content is published
 
    -  Proposal Status
+**Query -**
+
+ SELECT node.title AS node\_title, node.created AS node\_created
+ FROM
+ {node} node
+ LEFT JOIN {field\_data\_field\_case\_study\_title}
+ field\_data\_field\_case\_study\_title ON node.nid =
+ field\_data\_field\_case\_study\_title.field\_case\_study\_title\_target\_id
+ AND (field\_data\_field\_case\_study\_title.entity\_type = 'node' AND
+ field\_data\_field\_case\_study\_title.deleted = '0')
+ LEFT JOIN {node} field\_case\_study\_title\_node ON
+ field\_data\_field\_case\_study\_title.entity\_id =
+ field\_case\_study\_title\_node.nid
+ INNER JOIN {field\_data\_field\_case\_study\_status}
+ field\_data\_field\_case\_study\_status ON node.nid =
+ field\_data\_field\_case\_study\_status.entity\_id AND
+ (field\_data\_field\_case\_study\_status.entity\_type = 'node' AND
+ field\_data\_field\_case\_study\_status.deleted = '0')
+ LEFT JOIN {field\_data\_field\_code\_submission\_status}
+ field\_case\_study\_title\_node\_\_field\_data\_field\_code\_submission\_status
+ ON field\_case\_study\_title\_node.nid =
+ field\_case\_study\_title\_node\_\_field\_data\_field\_code\_submission\_status.entity\_id
+ AND
+ field\_case\_study\_title\_node\_\_field\_data\_field\_code\_submission\_status.field\_code\_submission\_status\_value
+ = 'Reject'
+ INNER JOIN {field\_data\_field\_code\_submission\_status}
+ field\_data\_field\_code\_submission\_status ON node.nid =
+ field\_data\_field\_code\_submission\_status.entity\_id AND
+ (field\_data\_field\_code\_submission\_status.entity\_type = 'node'
+ AND field\_data\_field\_code\_submission\_status.deleted = '0')
+ WHERE (( (node.status = '1') AND (node.type IN
+ ('case\_study\_proposal')) AND
+ (field\_data\_field\_case\_study\_status.field\_case\_study\_status\_value
+ = 'Approve') AND
+ (field\_case\_study\_title\_node\_\_field\_data\_field\_code\_submission\_status.field\_code\_submission\_status\_value
+ IS NULL ) AND
+ (field\_data\_field\_code\_submission\_status.field\_code\_submission\_status\_value
+ = 'Complete') ))
+ ORDER BY node\_created DESC
+ LIMIT 25 OFFSET 0
 
 |image4|
 
@@ -152,8 +203,46 @@ accepted.
     `*http://cfd.fossee.in/case-study/cs-code-submission* <http://cfd.fossee.in/case-study/cs-code-submission>`__
 
     **Roles-** All
+    **Query-**
 
-    Description
+ SELECT node.title AS node\_title, node.nid AS nid,
+ field\_case\_study\_title\_node.nid AS
+ field\_case\_study\_title\_node\_nid, node.created AS node\_created,
+ 'node' AS field\_data\_field\_upload\_cs\_zip\_node\_entity\_type
+ FROM
+ {node} node
+ LEFT JOIN {field\_data\_field\_case\_study\_title}
+ field\_data\_field\_case\_study\_title ON node.nid =
+ field\_data\_field\_case\_study\_title.field\_case\_study\_title\_target\_id
+ AND (field\_data\_field\_case\_study\_title.entity\_type = 'node' AND
+ field\_data\_field\_case\_study\_title.deleted = '0')
+ LEFT JOIN {node} field\_case\_study\_title\_node ON
+ field\_data\_field\_case\_study\_title.entity\_id =
+ field\_case\_study\_title\_node.nid
+ LEFT JOIN {field\_data\_field\_upload\_cs\_zip}
+ field\_case\_study\_title\_node\_\_field\_data\_field\_upload\_cs\_zip
+ ON field\_case\_study\_title\_node.nid =
+ field\_case\_study\_title\_node\_\_field\_data\_field\_upload\_cs\_zip.entity\_id
+ AND
+ (field\_case\_study\_title\_node\_\_field\_data\_field\_upload\_cs\_zip.entity\_type
+ = 'node' AND
+ field\_case\_study\_title\_node\_\_field\_data\_field\_upload\_cs\_zip.deleted
+ = '0')
+ INNER JOIN {field\_data\_field\_case\_study\_status}
+ field\_data\_field\_case\_study\_status ON node.nid =
+ field\_data\_field\_case\_study\_status.entity\_id AND
+ (field\_data\_field\_case\_study\_status.entity\_type = 'node' AND
+ field\_data\_field\_case\_study\_status.deleted = '0')
+ WHERE (( (node.uid = '1' ) )AND(( (node.status = '1') AND (node.type
+ IN ('case\_study\_proposal')) AND
+ (field\_case\_study\_title\_node\_\_field\_data\_field\_upload\_cs\_zip.field\_upload\_cs\_zip\_fid
+ IS NULL ) AND
+ (field\_data\_field\_case\_study\_status.field\_case\_study\_status\_value
+ = 'Approve') )))
+ ORDER BY node\_created DESC
+ LIMIT 25 OFFSET 0
+
+   **Description**
 
 -  The display is in the table format
 
@@ -176,8 +265,15 @@ accepted.
     `*http://cfd.fossee.in/case-study/cs-manage-code* <http://cfd.fossee.in/case-study/cs-manage-code>`__
 
     **Roles-** Administrator, Case Study Reviewer
+    **Query-**
 
-    Description
+SELECT node.title AS node\_title, node.nid AS nid, node.created AS node\_created, 'node' AS field\_data\_field\_code\_submission\_status  \_node\_entity\_type FROM
+{node}   node                                                                                                                                                    
+WHERE (( (node.status = '1') AND (node.type IN 'case\_study\_code\_submission')) 
+ORDER BY node\_created DESC
+LIMIT 25 OFFSET 0                                                                                                                           
+
+    **Description**
 
 -  The display is in the table format
 
@@ -200,7 +296,13 @@ accepted.
     `*http://cfd.fossee.in/case-study/cs-code-submission* <http://cfd.fossee.in/case-study/cs-code-submission>`__
 
     **Roles-** Administrator, Case Study Reviewer
-
+    **Query**
+SELECT node.title AS node\_title, node.nid AS nid, field\_case\_study\_title\_node.nid AS field\_case\_study\_title\_node\_nid, node.created AS node\_created, 'node' AS field\_data\_field\_attachment\_node\_entity\_type, 'node' AS field\_data\_field\_upload\_cs\_zip\_node\_entity\_type, 'node' AS field\_data\_field\_personal\_details\_node\_entity\_type                                      {node} node                                                                 
+LEFT JOIN {field\_data\_field\_case\_study\_title} field\_data\_field\_case\_study\_title ON node.nid = field\_data\_field\_case\_study\_title.field\_case\_study\_title\_target\_id AND (field\_data\_field\_case\_study\_title.entity\_type = 'node' AND field\_data\_field\_case\_study\_title.deleted = '0')                            
+LEFT JOIN {node} field\_case\_study\_title\_node ON field\_data\_field\_case\_study\_title.entity\_id = field\_case\_study\_title\_node.nid                                                                           INNER JOIN {field\_data\_field\_code\_submission\_status} field\_case\_study\_title\_node\_\_field\_data\_field\_code\_submission\_status ON field\_case\_study\_title\_node.nid = field\_case\_study\_title\_node\_\_field\_data\_field\_code\_submission\_status.entity\_id AND (field\_case\_study\_title\_node\_\_field\_data\_field\_code\_submission\_status.entity\_type = 'node' AND field\_case\_study\_title\_node\_\_field\_data\_field\_code\_submission\_status.deleted = '0')   |
+ WHERE (( (node.status = '1') AND (node.type IN ('case\_study\_proposal')) AND (field\_case\_study\_title\_node\_\_field\_data\_field\_code\_submission\_status.field\_code\_submission\_status\_value = 'Complete') ))  
+ ORDER BY node\_created DESC                                            |
+ LIMIT 25 OFFSET 0 
     Description
 
 -  The display is in the table format
@@ -224,7 +326,13 @@ accepted.
     `*http://cfd.fossee.in/case-study/cs-code-submission* <http://cfd.fossee.in/case-study/cs-code-submission>`__
 
     **Roles-** Administrator, Case Study Reviewer
-
+    **Query**
+SELECT node.title AS node\_title, node.nid AS nid, node.created AS node\_created, 'node' AS field\_data\_field\_upload\_cs\_zip\_node\_entity\_type    
+FROM                                                                 
+{node} node                                                           
+WHERE (( (node.uid = '1' ) )AND(( (node.status = '1') AND (node.type IN ('case\_study\_code\_submission')) )))                                         
+ORDER BY node\_created DESC                                          
+LIMIT 10 OFFSET 0                                                                                                                                      
     Description
 
 -  The display is in the table format
