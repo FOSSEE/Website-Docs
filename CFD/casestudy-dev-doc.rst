@@ -109,6 +109,7 @@ accepted.
     `*http://cfd.fossee.in/case-study/manage-proposal* <http://cfd.fossee.in/case-study/manage-proposal>`__
 
     **Roles-** Administrator, Case Study Reviewer
+
     **Query-**
 
 	 SELECT node.title AS node\_title, node.nid AS nid, node.created AS
@@ -139,6 +140,7 @@ accepted.
     `*http://cfd.fossee.in/case-study/cs-in-progress* <http://cfd.fossee.in/case-study/cs-in-progress>`__
 
     **Roles-** All
+
     **Query -**
 
 	 SELECT node.title AS node\_title, node.created AS node\_created
@@ -204,6 +206,7 @@ accepted.
     `*http://cfd.fossee.in/case-study/cs-code-submission* <http://cfd.fossee.in/case-study/cs-code-submission>`__
 
     **Roles-** All
+
     **Query-**
 
 	 SELECT node.title AS node\_title, node.nid AS nid,
@@ -266,6 +269,7 @@ accepted.
     `*http://cfd.fossee.in/case-study/cs-manage-code* <http://cfd.fossee.in/case-study/cs-manage-code>`__
 
     **Roles-** Administrator, Case Study Reviewer
+
     **Query-**
 	SELECT node.title AS node\_title, node.nid AS nid, node.created AS node\_created, 'node' AS field\_data\_field\_code\_submission\_status  \_node\_entity\_type FROM
 	{node}node                                                         
@@ -296,6 +300,7 @@ accepted.
     `*http://cfd.fossee.in/case-study/cs-code-submission* <http://cfd.fossee.in/case-study/cs-code-submission>`__
 
     **Roles-** Administrator, Case Study Reviewer
+
     **Query**
 	SELECT node.title AS node\_title, node.nid AS nid, field\_case\_study\_title\_node.nid AS field\_case\_study\_title\_node\_nid, node.created AS node\_created, 'node' AS field\_data\_field\_attachment\_node\_entity\_type, 'node' AS field\_data\_field\_upload\_cs\_zip\_node\_entity\_type, 'node' AS field\_data\_field\_personal\_details\_node\_entity\_type                                      {node} node                                                                 
 	LEFT JOIN {field\_data\_field\_case\_study\_title} field\_data\_field\_case\_study\_title ON node.nid = field\_data\_field\_case\_study\_title.field\_case\_study\_title\_target\_id AND (field\_data\_field\_case\_study\_title.entity\_type = 'node' AND field\_data\_field\_case\_study\_title.deleted = '0')                            
@@ -326,13 +331,14 @@ accepted.
     `*http://cfd.fossee.in/case-study/cs-code-submission* <http://cfd.fossee.in/case-study/cs-code-submission>`__
 
     **Roles-** Administrator, Case Study Reviewer
+
     **Query**
 	SELECT node.title AS node\_title, node.nid AS nid, node.created AS node\_created, 'node' AS field\_data\_field\_upload\_cs\_zip\_node\_entity\_type    
 	FROM                                                                 
 	{node} node                                                           
 	WHERE (( (node.uid = '1' ) )AND(( (node.status = '1') AND (node.type IN ('case\_study\_code\_submission')) )))                                         
 	ORDER BY node\_created DESC                                          
-	LIMIT 10 OFFSET 0                                                                                                                            
+		LIMIT 10 OFFSET 0                                                                                                                            
     Description
 
 -  The display is in the table format
